@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="icon" type="image/png" href="img/Logo.png" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css">
+    <link rel="stylesheet" href="css/estilos.css" type="text/css">
+    <title>Salud Temuco - Areas</title>
+</head>
+
+<body>
+    <!-- App -->
+    <div id="app">
+        <v-app id="inspire">
+
+            <!-- Navbar -->
+            <v-toolbar dark color="light-blue">
+                <v-toolbar-side-icon dark @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+                <v-toolbar-title>Salud Temuco</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-toolbar-items class="hidden-sm-and-down">
+                    <v-btn href="pedirhora.html" flat>Pedir Hora</v-btn>
+                </v-toolbar-items>
+            </v-toolbar>
+
+            <!-- drawer-->
+            <v-navigation-drawer v-model="drawer" absolute temporary>
+                <!--Rutas-->
+                <v-list class="pt-0" dense>
+                    <v-list-tile href="index.html">
+                        <h4>Inicio</h4>
+                    </v-list-tile>
+                    <v-list-tile href="cesfam.html">
+                        <h4>Cesfam </h4>
+                    </v-list-tile>
+                    <v-list-tile href="areas.html">
+                        <h4>Areas de la salud</h4>
+                    </v-list-tile>
+                </v-list>
+            </v-navigation-drawer>
+
+            <!--Areas-->
+            <section class="AREAS">
+                <h1>Areas de la Salud</h1>
+                <v-expansion-panel expand>
+                    <v-expansion-panel-content v-for="(area) in areas" :key="area.nombre">
+                        <template v-slot:header>
+                            <div>{{area.nombre}}</div>
+                        </template>
+                        <v-card>
+                            <v-card-text class="grey lighten-3">{{area.descripcion}}</v-card-text>
+                        </v-card>
+                    </v-expansion-panel-content>
+                </v-expansion-panel>
+            </section>
+
+            <!--Footer-->
+            <v-footer dark height="auto">
+                <v-card class="flex" flat tile>
+                    <v-card-title class="light-blue lighten-1">
+                        <strong class="subheading">Esta pagina web esta desarrollada con Vue.js!</strong>
+                        <v-spacer></v-spacer>
+                        <v-btn v-for="icon in icons" :key="icon" class="mx-3" dark icon>
+                            <v-icon size="24px">{{ icon }}</v-icon>
+                        </v-btn>
+                    </v-card-title>
+                    <v-card-actions class="light-blue darken-4 justify-center">
+                        &copy;2019 — <strong> Salud Temuco </strong>
+                    </v-card-actions>
+                </v-card>
+            </v-footer>
+
+            <!--Fin app-->
+        </v-app>
+    </div>
+
+    <!--Scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
